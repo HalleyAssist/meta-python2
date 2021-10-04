@@ -2,6 +2,7 @@ on:
 #  schedule:
 #    - cron: "17 * * * *"
   push:
+
 jobs:
   git-sync:
     runs-on: ubuntu-latest
@@ -13,4 +14,4 @@ jobs:
           source_branch: "*"
           destination_repo: "HalleyAssist/meta-python2"
           destination_branch: "*"
-#          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}
+          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}
