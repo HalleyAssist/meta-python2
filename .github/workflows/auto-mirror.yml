@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: git-sync
-        uses: wei/git-sync@v3
+        uses: HalleyAssist/git-sync@v3
         with:
           source_repo: "https://git.openembedded.org/meta-python2"
           source_branch: "*"
