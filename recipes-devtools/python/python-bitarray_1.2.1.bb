@@ -11,7 +11,7 @@ encoding, you may find this module useful."
 HOMEPAGE = "https://github.com/ilanschnell/bitarray"
 SECTION = "devel/python"
 
-LICENSE = "PSF"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://PKG-INFO;md5=dc301a25ebe210dcc53b0a2d5a038eae"
 
 SRC_URI[md5sum] = "a46bf869f6adf34f5b0dc82b469793b7"
@@ -21,4 +21,4 @@ inherit pypi setuptools
 
 BBCLASSEXTEND = "native nativesdk"
 
-PNBLACKLIST[python-bitarray] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-bitarray] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

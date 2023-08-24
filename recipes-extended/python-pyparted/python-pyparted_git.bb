@@ -5,7 +5,7 @@ filesystem manipulation."
 HOMEPAGE = "https://github.com/rhinstaller/pyparted"
 SECTION = "devel/python"
 
-LICENSE = "GPL-2.0+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "\
     file://COPYING;md5=8ca43cbc842c2336e835926c2166c28b \
     file://src/_pedmodule.c;beginline=10;endline=22;md5=9e53304db812b80d0939e11bb69dcab2 \
@@ -16,7 +16,7 @@ PV = "3.11.4+git${SRCPV}"
 
 # upstream only publishes releases in github archives which are discouraged
 SRCREV = "104ca13567c08c1188b126a395c4602841aae2c6"
-SRC_URI = "git://github.com/rhinstaller/pyparted.git;protocol=https"
+SRC_URI = "git://github.com/rhinstaller/pyparted.git;protocol=https;branch=master"
 
 DEPENDS += "parted"
 
@@ -34,4 +34,4 @@ RDEPENDS:${PN}:class-native = ""
 
 BBCLASSEXTEND = "native"
 
-PNBLACKLIST[python-pyparted] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-pyparted] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

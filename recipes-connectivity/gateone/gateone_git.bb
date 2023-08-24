@@ -1,11 +1,11 @@
 SUMMARY = "HTML5 (plugin-free) web-based terminal emulator and SSH client"
-LICENSE = "AGPL-3.0"
+LICENSE = "AGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=834cbc6995db88433db17cdf8953a428"
 HOMEPAGE = "http://liftoffsoftware.com/Products/GateOne"
 
 PV = "1.2+git${SRCPV}"
 SRCREV = "f7a9be46cb90f57459ebd363d24702de0e651034"
-SRC_URI = "git://github.com/liftoff/GateOne.git;branch=master \
+SRC_URI = "git://github.com/liftoff/GateOne.git;branch=master;protocol=https \
            file://gateone-avahi.service \
            file://80oe.conf.in \
            file://gateone.service.in \
@@ -84,4 +84,4 @@ RDEPENDS:${PN} = "mime-support \
 SYSTEMD_SERVICE:${PN} = "gateone.service"
 INITSCRIPT_NAME = "gateone"
 
-PNBLACKLIST[gateone] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[gateone] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

@@ -10,12 +10,12 @@ and harvested keys, as well a script to harvest DNSKEY's from DNS. \
 See also: system-config-dnssec"
 HOMEPAGE = "https://github.com/xelerance/dnssec-conf"
 SECTION = "net"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=0636e73ff0215e8d672dc4c32c317bb3"
 DEPENDS += "xmlto-native docbook-xml-dtd4-native \
             docbook-xsl-stylesheets-native libxslt-native"
 
-SRC_URI = "git://github.com/xelerance/dnssec-conf.git"
+SRC_URI = "git://github.com/xelerance/dnssec-conf.git;branch=master;protocol=https"
 SRCREV = "8e799683736b4a7b5e5e78f98fba0a6f48393537"
 
 S = "${WORKDIR}/git"
@@ -40,4 +40,4 @@ RDEPENDS:${PN} = "\
     python-pyparsing \
 "
 
-PNBLACKLIST[dnssec-conf] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[dnssec-conf] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

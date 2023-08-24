@@ -6,7 +6,7 @@ This section is essentially complete, and the software interface will almost \
 certainly not change in an incompatible way in the future; all that remains to \
 be done is to fix any bugs that show up."
 HOMEPAGE = "http://www.pycrypto.org/"
-LICENSE = "PSFv2"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=35f354d199e8cb7667b059a23578e63d"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/python-pycrypto:"
@@ -35,4 +35,4 @@ do_install() {
 
 BBCLASSEXTEND = "native nativesdk"
 
-PNBLACKLIST[python-pycrypto] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-pycrypto] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

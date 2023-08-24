@@ -1,6 +1,6 @@
 SUMMARY="Pylint is a Python source code analyzer"
 HOMEPAGE= "http://www.pylint.org/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4325afd396febcb659c36b49533135d4"
 
 SRC_URI[md5sum] = "2eb5f3cb8fe567eaf5420dd415012202"
@@ -38,4 +38,4 @@ RDEPENDS:${PN} += "${PYTHON_PN}-astroid \
                    ${PYTHON_PN}-netserver \
                   "
 
-PNBLACKLIST[python-pylint] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-pylint] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

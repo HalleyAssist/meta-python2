@@ -11,7 +11,7 @@ SECTION = "devel/python"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=258e3f39e2383fbd011035d04311008d"
 
-SRC_URI = "git://github.com/marianoguerra/feedformatter.git"
+SRC_URI = "git://github.com/marianoguerra/feedformatter.git;branch=master;protocol=https"
 SRCREV = "7391193c83e10420b5a2d8ef846d23fc368c6d85"
 
 S = "${WORKDIR}/git"
@@ -24,4 +24,4 @@ RDEPENDS:${PN} += "\
     ${PYTHON_PN}-xml \
     "
 
-PNBLACKLIST[python-feedformatter] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-feedformatter] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

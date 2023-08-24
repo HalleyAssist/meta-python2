@@ -5,7 +5,7 @@ Python very concisely, which eliminates the need to learn another template \
 language, and lets you take advantage of the more powerful features of Python."
 HOMEPAGE = "https://github.com/Knio/dominate/"
 
-LICENSE = "LGPL-3.0"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=b52f2d57d10c4f7ee67a7eb9615d5d24"
 
 SRC_URI[md5sum] = "27d3aa7e0d67902c505e248e705e5e2e"
@@ -18,4 +18,4 @@ RDEPENDS:${PN} += "\
     ${PYTHON_PN}-threading \
     "
 
-PNBLACKLIST[python-dominate] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-dominate] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"

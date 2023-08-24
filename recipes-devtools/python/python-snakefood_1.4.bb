@@ -35,7 +35,7 @@ given the trade-offs, 99% is good enough for 99% of the uses.\
 "
 AUTHOR = "Martin Blais <blais@furius.ca>"
 HOMEPAGE = "http://furius.ca/snakefood"
-LICENSE = "GPL-2.0"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 SRC_URI[md5sum] = "56c88667a33d8909b0aabf2ab6903bdf"
@@ -50,4 +50,4 @@ RDEPENDS:${PN}:class-native = ""
 BBCLASSEXTEND = "native"
 
 
-PNBLACKLIST[python-snakefood] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
+SKIP_RECIPE[python-snakefood] ?= "${@bb.utils.contains('I_SWEAR_TO_MIGRATE_TO_PYTHON3', 'yes', '', 'python2 is out of support for long time, read https://www.python.org/doc/sunset-python-2/ https://python3statement.org/ and if you really have to temporarily use this, then set I_SWEAR_TO_MIGRATE_TO_PYTHON3 to "yes"', d)}"
